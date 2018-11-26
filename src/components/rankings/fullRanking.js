@@ -19,6 +19,9 @@ const styleExpansionPanel = {
     "&:before": {
       backgroundColor: "white"
     }
+  },
+  expanded: {
+    marginTop: "2rem !important"
   }
 };
 
