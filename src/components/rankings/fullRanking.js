@@ -91,7 +91,7 @@ const CustomExtansionSummaryButton = withStyles(styleExpensionSummaryButton)(
 // Function used to return the correct data depending on which page user wants to display
 const getData = (currentPage, data) => {
   let start = currentPage * 10;
-  let end = (currentPage + 1) * 10 - 1;
+  let end = (currentPage + 1) * 10;
   return data.slice(start, end);
 };
 
@@ -124,7 +124,7 @@ class FullRanking extends Component {
     this.handleClick = this.handleClick.bind(this);
     // Create inline style for cells.
     this.styleCell = {
-      padding: "0.5rem",
+      padding: this.isWeekly ? "0.25rem" : "0.5rem",
       width: this.isWeekly ? "25%" : "33%"
     };
   }
@@ -152,7 +152,9 @@ class FullRanking extends Component {
           <CustomExtansionSummaryButton onClick={() => this.handleClick()}>
             {this.state.expanded ? "Hide Full Ranking" : "Show Full Ranking"}
           </CustomExtansionSummaryButton>
-          <ExpansionPanelDetails>
+          <ExpansionPanelDetails
+            className={this.isWeekly ? "weekly-table" : ""}
+          >
             <Grid
               container
               direction="column"
